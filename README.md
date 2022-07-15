@@ -13,4 +13,5 @@
     *These commands must be ran from the '/calculator-app' directory
 
 4. The application should be running on http://localhost:4200/ 
+
     In the terminal that started the server, it will display api responses.
