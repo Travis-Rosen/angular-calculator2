@@ -1,0 +1,27 @@
+<!--
+  -Travis Rosen
+  -07/09/2022
+  -base-layout.component.html
+  -HTML page for the base layout of the application
+-->
+
+
+<mat-toolbar class="nav">
+  <mat-toolbar-row>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/contact">Contact</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<br>
+<!--This will be the main card that displays the rest of the pages-->
+<mat-card class="mat-elevation-z8 main-container">
+  <mat-card-title class="title" align="center">Calculator App</mat-card-title>
+  <br><br>
+  <mat-card-content>
+    <router-outlet></router-outlet>
+  </mat-card-content>
+</mat-card>
+
+
+

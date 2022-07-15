@@ -1,0 +1,38 @@
+<!--
+  -Travis Rosen
+  -7/14/2022
+  -Calc-problems-details.component.html
+  =HTML page for the problem details component
+-->
+<div>
+  <mat-card class="mat-elevation-z8" style="width: 60%;">
+    <mat-card-title class="title">Math Problem Details</mat-card-title>
+    <br>
+    <!--Form that calls on savedProblem() function to submit math problem creation-->
+    <form [formGroup]="form" (ngSubmit)="savedProblem()" #problemForm>
+      <mat-card-content>
+        <div>
+          <mat-form-field>
+            <!--Input field for 'title' -->
+            <input type="text" matInput [formControl]="$any(form).controls['title']" placeholder="Problem Title..." />
+            <!--Checking if field is valid-->
+            <mat-error class="error" *ngIf="form.controls.title.hasError('required') && form.controls.title.touched">Required Field</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <!--Input field for 'description' -->
+            <input type="text" matInput [formControl]="$any(form).controls['description']" placeholder="Problem Description..."  />
+            <!--Checking if field is valid-->
+            <mat-error class="error" *ngIf="form.controls.description.hasError('required') && form.controls.description.touched">Required Field</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <br>
+      <mat-card-actions align="end">
+        <!--Form buttons that will call cancel() function // checks if form is valid -->
+        <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+        <button mat-raised-button [disabled]="!form.valid" class="submit-btn">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+
+</div>

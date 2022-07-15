@@ -1,0 +1,14 @@
+
+.form {
+  width: 100%;
+}
+
+.title {
+  color: brown;
+  font-weight: 300;
+}
+
+.submit-btn {
+  background-color: brown;
+  color: white;
+}

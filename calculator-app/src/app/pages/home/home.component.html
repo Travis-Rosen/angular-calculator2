@@ -1,0 +1,73 @@
+<!--
+  -Travis Rosen
+  -07/09/2022
+  -calc.component.html
+  -HTML page for calculator
+-->
+
+<!--Start of calculator HTML-->
+<div class="container">
+  <div class="calc">
+    <!--This is the screen that will display current value, set to 0 at default-->
+    <input type="text" class="screen" [value]="currentNumber" disabled />
+    <div class="calc-buttons">
+      <!--Clear button-->
+      <button type="button" class="btn clear span-4" value="clear" (click)="clear()" >AC</button>
+      <!--Pulling from operator service to display respective buttons-->
+      <button type="button" *ngFor="let op of calcOperators"  class="btn symbol" [value]="op" (click)="getOperation(op.operator)">{{op.operator}}</button>
+      <!--Pulling from numbers service to display respective buttons-->
+      <button type="button" *ngFor="let nb of calcNumbers" class="btn numbers"[value]="nb" (click)="getNumber(nb.num)">{{nb.num}}</button>
+      <!--Decimal and equals button-->
+      <button type="button" class="btn decimal" value="." (click)="getDecimal()">.</button>
+      <button type="button" class="btn symbol" value="=" (click)="getOperation('=')">=</button>
+    </div>
+  </div>
+</div>
+<!--Table to display math problems-->
+<div class="table">
+  <mat-card>
+    <mat-card-title class="title">Math Problems</mat-card-title>
+    <mat-card-subtitle>
+      <button  mat-button class="create" routerLink="/create/new">Create New</button>
+    </mat-card-subtitle>
+      <mat-card-content>
+        <mat-card class="mat-elevation-z0">
+          <!--The table will pull from CalcProblemService to populate table-->
+          <mat-card-content *ngIf="problems">
+            <table mat-table [dataSource]="problems" class="mat-elevation-z8">
+              <!--ng container displaying 'title' from CalcProblemsService-->
+              <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef>Title</th>
+              <td mat-cell *matCellDef="let element">
+                {{element.title}}
+              </td>
+              </ng-container>
+              <!--ng container displaying 'description' from CalcProblemsService-->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef>Description</th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.description}}
+                </td>
+                </ng-container>
+                <!--Functions section // edit or delete-->
+              <ng-container matColumnDef="functions">
+              <th mat-header-cell *matHeaderCellDef>Functions</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button routerLink='calculator/{{element._id}}'>
+                  <mat-icon class="icon">edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="delete(element._id)">
+                  <mat-icon class="icon">delete</mat-icon>
+                </button>
+                </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef='let row; columns: displayedColumns;'></tr>
+            </table>
+          </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+  </mat-card>
+</div>
+
+

@@ -1,0 +1,112 @@
+/*
+-Travis Rosen
+-07/09/2022
+-calc.component.css
+-Styling page for calculator page
+*/
+
+.container {
+  float: left;
+}
+
+.table {
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+}
+
+.icon {
+  color: #A52A2A;
+}
+
+/*
+Styling for calculator screen/layout
+*/
+.calc {
+  border: 1px solid #252525;
+  max-width: 320px;
+  background: #eee;
+}
+
+.screen {
+  width: 100%;
+  font-size: 5rem;
+  height: 80px;
+  border: none;
+  background-color: #252525;
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+
+/*
+Styling for calculator buttons
+*/
+
+.btn {
+  font-size: 2em;
+  height: 60px;
+  border:1px solid #303030;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  background-color: #eee;
+}
+
+.symbol {
+  color:black;
+  background-color: #A52A2A;
+}
+
+.numbers {
+  background-color: #A9A9A9;
+}
+
+.decimal {
+  background-color: #A52A2A;
+  color: black;
+}
+
+.clear {
+  background-color: #A52A2A;
+  color: black;
+}
+
+.symbol {
+  color:black;
+  background-color: #A52A2A;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.title {
+  color: brown;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.create {
+  color: #A52A2A;
+}
+
+
+
+
